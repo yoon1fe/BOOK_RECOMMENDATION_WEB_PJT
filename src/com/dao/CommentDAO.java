@@ -1,8 +1,12 @@
 package com.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 public class CommentDAO {
-	private static String dburl = "jdbc:mysql://15.165.219.175:3306/webPjt?serverTimezone=UTC";
-	private static String dbUser = "connectuser";
-	private static String dbPw = "connect123!@#";
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
 	
 }

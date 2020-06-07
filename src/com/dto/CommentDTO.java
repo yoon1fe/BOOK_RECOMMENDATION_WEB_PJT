@@ -1,17 +1,27 @@
 package com.dto;
 
+import java.sql.Timestamp;
+
 public class CommentDTO {
 	private int comment_number;
 	private String id;
 	private int board_number;
 	private String comment_content;
-	
+	private Timestamp datetime;
 	
 	public CommentDTO(int comment_number, int board_number, String comment_content) {
 		super();
 		this.comment_number = comment_number;
 		this.board_number = board_number;
 		this.comment_content = comment_content;
+	}
+	
+	public Timestamp getDatetime() {
+		return datetime;
+	}
+
+	public void setDatetime(Timestamp datetime) {
+		this.datetime = datetime;
 	}
 	
 	public int getComment_number() {

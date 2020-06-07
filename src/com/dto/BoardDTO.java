@@ -46,6 +46,11 @@ public class BoardDTO {
 	public void setDatetime(Timestamp datetime) {
 		this.datetime = datetime;
 	}
+
+	@Override
+	public String toString() {
+		return "" + datetime + "";
+	}
 	
 	
 }
