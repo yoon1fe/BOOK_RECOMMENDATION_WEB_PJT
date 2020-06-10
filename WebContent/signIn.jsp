@@ -37,45 +37,42 @@
 
 		}
 	%>
-
 	<div class="container">
+	    <div class="row">
+	      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+	        <div class="card card-signin my-5">
+	          <div class="card-body">
+	            <h5 class="card-title text-center">Sign In</h5>
+	            <form class="form-signin" method="post" action="loginAction.jsp">
+	              <div class="form-label-group" >
+	                <input type="text" id="id" class="form-control" placeholder="ID" required autofocus>
+	                <label for="id">ID</label>
+	              </div>
+	
+	              <div class="form-label-group">
+	                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+	                <label for="inputPassword">Password</label>
+	              </div>
+	<!--  
+	              <div class="custom-control custom-checkbox mb-3">
+	                <input type="checkbox" class="custom-control-input" id="customCheck1">
+	                <label class="custom-control-label" for="customCheck1">Remember password</label>
+	              </div>
+	             	-->  
+	              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log in</button>
+            
+	              <hr class="my-4">
 
-		<div class="col-lg-4"></div>
-
-		<div class="col-lg-4">
-
-			<div class="jumbotron" style="padding-top: 20px;">
-
-				<form method="post" action="loginAction.jsp">
-
-					<h3 style="text-align: center;">로그인화면</h3>
-
-					<div class="form-group">
-
-						<input type="text" class="form-control" placeholder="아이디" name="id" maxlength="20">
-
-					</div>
-
-
-					<div class="form-group">
-
-						<input type="password" class="form-control" placeholder="비밀번호" name="password" maxlength="20">
-
-					</div>
-
-					<input type="submit" class="btn btn-primary form-control" value="로그인">
-
-				</form>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.js"></script>
-
+	             </form>
+	             <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><a href = "signUp.jsp" class="fab fa-google mr-2">Registration</a> </button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+		
+		
+		<jsp:include page="footer.jsp" />
 
 </body>
 
