@@ -17,6 +17,82 @@ public class BoardDAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
+	public int processLike(int board_number,int like)
+	{
+		if(like>0)
+		{
+			try
+			{
+				conn = dbConnection.getConnection();
+				String SQL = "UPDATE board set likely=likely+1 where board_number=?";
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
+				pstmt = conn.prepareStatement(SQL);
+				
+				pstmt.setInt(1, board_number);
+				
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				e.printStackTrace();
+				return -1;
+			}
+		}
+		else
+		{
+			try
+			{
+				conn = dbConnection.getConnection();
+				String SQL = "UPDATE board set likely=likely-1 where board_number=?";
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
+				pstmt = conn.prepareStatement(SQL);
+				
+				pstmt.setInt(1, board_number);
+				
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				e.printStackTrace();
+				return -1;
+			}
+		}
+	}
+	
+	public int processDisLike(int board_number,int dislike)
+	{
+		if(dislike>0)
+		{
+			try
+			{
+				conn = dbConnection.getConnection();
+				String SQL = "UPDATE board set dislikely=dislikely+1 where board_number=?";
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
+				pstmt = conn.prepareStatement(SQL);
+				
+				pstmt.setInt(1, board_number);
+				
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				e.printStackTrace();
+				return -1;
+			}
+		}
+		else
+		{
+			try
+			{
+				conn = dbConnection.getConnection();
+				String SQL = "UPDATE board set dislikely=dislikely-1 where board_number=?";
+				PreparedStatement pstmt = conn.prepareStatement(SQL);
+				pstmt = conn.prepareStatement(SQL);
+				
+				pstmt.setInt(1, board_number);
+				
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				e.printStackTrace();
+				return -1;
+			}
+		}
+	}
+	
 	public int addBoard(String title, String content, String id) {
 		try {
 			conn = dbConnection.getConnection();

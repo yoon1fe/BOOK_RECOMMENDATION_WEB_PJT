@@ -26,6 +26,19 @@
 		<%=boardContent.getBoard_content()%>
 
 	</div>
+	
+	<div class="recommend">
+		<form  action="likeAction.jsp" accept-charset='utf-8' method="post">
+			<button id="like">추천</button>
+			<input type="hidden" name="board_number" value=<%=boardContent.getBoard_number() %>>
+			<input type="hidden" name="id" value=<%=session.getAttribute("userID") %>>
+		</form>
+		<form  action="dislikeAction.jsp" accept-charset='utf-8' method="post">
+			<button id="dislike">비추천</button>
+			<input type="hidden" name="board_number" value=<%=boardContent.getBoard_number() %>>
+			<input type="hidden" name="id" value=<%=session.getAttribute("userID") %>>
+		</form>
+	</div>
 
 	<div class="board-comment">
 

@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import com.dto.UserDTO;
 
 public class UserDAO {
-	
+
 	public int register(UserDTO user)
 	   {
 	      String SQL = "INSERT INTO user VALUES (?,?,?,?,?,?,?,false)";
@@ -85,13 +85,13 @@ public class UserDAO {
 	         rs = pstmt.executeQuery();
 
 	         while(rs.next()) {
-	            return rs.getString(1); // 이메일 주소 반환
+	            return rs.getString(1); // �씠硫붿씪 二쇱냼 諛섑솚
 	         }
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      }
 
-	      return null; // 데이터베이스 오류
+	      return null; // �뜲�씠�꽣踰좎씠�뒪 �삤瑜�
 	   }
 	   
 	   public boolean getUserEmailChecked(String userID) {
@@ -109,7 +109,7 @@ public class UserDAO {
 
 	         while(rs.next()) {
 
-	            return rs.getBoolean(1); // 이메일 등록 여부 반환
+	            return rs.getBoolean(1); // �씠硫붿씪 �벑濡� �뿬遺� 諛섑솚
 
 	         }
 
@@ -119,7 +119,7 @@ public class UserDAO {
 
 	      }
 
-	      return false; // 데이터베이스 오류
+	      return false; // �뜲�씠�꽣踰좎씠�뒪 �삤瑜�
 
 	   }
 
@@ -136,7 +136,7 @@ public class UserDAO {
 
 	         pstmt.executeUpdate();
 
-	         return true; // 이메일 등록 설정 성공
+	         return true; // �씠硫붿씪 �벑濡� �꽕�젙 �꽦怨�
 
 	      } catch (Exception e) {
 
@@ -144,7 +144,7 @@ public class UserDAO {
 
 	      }
 
-	      return false; // 이메일 등록 설정 실패
+	      return false; // �씠硫붿씪 �벑濡� �꽕�젙 �떎�뙣
 
 	   }
 
