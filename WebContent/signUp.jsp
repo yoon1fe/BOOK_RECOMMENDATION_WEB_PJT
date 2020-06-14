@@ -38,54 +38,7 @@
 		}
 	%>
 	<div class="container">
-<<<<<<< HEAD
 
-		<div class="col-lg-4"></div>
-
-		<div class="col-lg-4">
-
-			<div class="jumbotron" style="padding-top: 20px;">
-
-				<form method="post" action="userRegisterAction.jsp">
-
-					<h3 style="text-align: center;">회원가입</h3>
-
-					<div class="form-group">
-
-						<input type="text" class="form-control" placeholder="아이디" name="id" maxlength="20">
-
-					</div>
-
-					<div class="form-group">
-
-						<input type="password" class="form-control" placeholder="비밀번호" name="password" maxlength="20">
-
-					</div>
-
-					<div class="form-group">
-
-						<input type="text" class="form-control" placeholder="이름" name="name" maxlength="20">
-
-					</div>
-
-					<div class="form-group">
-
-						<input type="text" class="form-control" placeholder="나이" name="age" maxlength="20">
-
-					</div>
-
-
-					<div class="form-group" style="text-align: center;">
-
-						<div class="btn-group" data-toggle="buttons">
-
-							<label class="btn btn-primary active"> <input type="radio" name="sex" autocomplete="off" value="남자" checked>남자
-
-							</label> <label class="btn btn-primary"> <input type="radio" name="sex" autocomplete="off" value="여자">여자
-							</label>
-
-						</div>
-=======
 	    <div class="row">
 	      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 	        <div class="card card-signin my-5">
@@ -117,7 +70,6 @@
 							<label class="btn btn-primary active"> <input type="radio" name="sex" autocomplete="off" value="남자" checked>남자</label> 
 							<label class="btn btn-primary"> <input type="radio" name="sex" autocomplete="off" value="여자">여자</label>
 							
->>>>>>> origin/master
 
 					</div>
 					<p/>
