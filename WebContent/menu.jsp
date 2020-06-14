@@ -5,50 +5,39 @@
 
 <!-- 스타일시트 참조  -->
 
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<nav class="navbar navbar-default">
 
-  <div class="navbar-header">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js'></script>
+<link rel = 'stylesheet'
+href = 'https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
 
-   <button type="button" class="navbar-toggle collapsed" 
 
-    data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.jsp">도서 추천</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.jsp">Home
+                <span class="sr-only">(current)</span>
+              </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Board">게시판</a>
+        </li>
+       
+    
+	   <li class="nav-item dropdown">
 
-    aria-expaned="false">
+		     <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false"
+		
+		      data-toggle="dropdown" >접속하기</a>
 
-     <span class="icon-bar"></span>
-
-     <span class="icon-bar"></span>
-
-     <span class="icon-bar"></span>
-
-    </button>
-
-    <a class="navbar-brand" href="index.jsp">도서추천</a>
-
-  </div>
-
-  <div class="collapse navbar-collapse" id="#bs-example-navbar-collapse-1">
-
-   <ul class="nav navbar-nav">
-
-    <li><a href="index.jsp">메인</a></li>
-
-    <li><a href="Board">게시판</a></li>
-
-   </ul>
-
-   <ul class="nav navbar-nav navbar-right">
-
-    <li class="dropdown">
-
-     <a href="#" class="dropdown-toggle"
-
-      data-toggle="dropdown" role="button" aria-haspopup="true"
-
-      aria-expanded="false">접속하기<span class="caret"></span></a>
-
-     <ul class="dropdown-menu">
+     	<div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+     	
 <%
 	String userID = null;
 	
@@ -60,22 +49,26 @@
 	if(userID == null)
 	{
 %>
-      <li class="active"><a href="signIn.jsp">로그인</a></li>
-      <li><a href="signUp.jsp">회원가입</a></li>
+      <a class="dropdown-item" href="signIn.jsp">로그인</a>
+      <a class="dropdown-item" href="signUp.jsp">회원가입</a>
       
 <%
 	}else{
 %>  
-      <li><a href="logout.jsp">로그아웃</a></li>
+     <a class="dropdown-item" href="logout.jsp">로그아웃</a>
 <%
 	}
 %>
-     </ul>
+		
+		
+		</div>
 
-    </li>
+		</li>
+		</ul>
+		
 
-   </ul>
+    </div>
+  </div>
+</nav>
 
-  </div> 
-
- </nav>
+ 
