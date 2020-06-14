@@ -15,29 +15,20 @@
 	<jsp:include page="menu.jsp" />
 
 	<a href="write.jsp">글 쓰기</a>
-	<%request.setAttribute("a", 44); %>
 	
 
-	<table class="board-table">
-		<thead>
-			<tr>
-				<th>게시글 번호</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>시각</th>
-			</tr>
-		</thead>
-		<tbody>
+	
+				<h3>게시글 번호 제목 작성자 조회수 시각</h3>
+				
 			<%
 			for(BoardDTO bds : boards){
-				request.setAttribute("board_number"+bds.getBoard_number(), bds.getBoard_number());
-
 				%>
 				<article class = "board-article">
-				<a href="BoardContent">
+				<a href="BoardContent?id=<%=bds.getBoard_number()%>">
 				<%=bds.getBoard_number() %>
 				<%=bds.getTitle() %>
 				<%=bds.getId() %>
+				<%=bds.getReadCount()%>
 				<%=bds.toString() %>
 				</a>
 				</article>
@@ -47,17 +38,9 @@
 		</tbody>
 
 	</table>
-<%
-Enumeration params = request.getParameterNames();
-System.out.println("----------------------------");
-while (params.hasMoreElements()){
-    String name = (String)params.nextElement();
-    System.out.println(name + " : " +request.getParameter(name));
-}
-System.out.println("----------------------------");
- %>
 
-
+ <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
+ <script src="js/bootstrap.js"></script>
 	<jsp:include page="footer.jsp" />
 </body>
 </html>

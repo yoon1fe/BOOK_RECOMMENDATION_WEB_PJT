@@ -9,11 +9,11 @@ public class CommentDTO {
 	private String comment_content;
 	private Timestamp datetime;
 	
-	public CommentDTO(int comment_number, int board_number, String comment_content) {
+	public CommentDTO(String id, String comment_content, Timestamp datetime) {
 		super();
-		this.comment_number = comment_number;
-		this.board_number = board_number;
+		this.id = id;
 		this.comment_content = comment_content;
+		this.datetime = datetime;
 	}
 	
 	public Timestamp getDatetime() {
@@ -24,6 +24,7 @@ public class CommentDTO {
 		this.datetime = datetime;
 	}
 	
+
 	public int getComment_number() {
 		return comment_number;
 	}
@@ -47,6 +48,11 @@ public class CommentDTO {
 	}
 	public void setComment_content(String comment_content) {
 		this.comment_content = comment_content;
+	}
+
+	@Override
+	public String toString() {
+		return "" + datetime + "";
 	}
 	
 	

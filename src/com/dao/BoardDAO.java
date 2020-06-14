@@ -28,7 +28,6 @@ public class BoardDAO {
 			pstmt.setString(2, content);
 			pstmt.setString(3, id);
 			
-			System.out.println(title + " " + content + " " + id);
 			return pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -52,7 +51,7 @@ public class BoardDAO {
 				String board_content = rs.getString(3);
 				String id = rs.getString(4);
 				Timestamp datetime = rs.getTimestamp(5);
-
+				
 				board = new BoardDTO(title, board_content, id);
 				board.setBoard_number(board_number);
 				board.setDatetime(datetime);
@@ -62,6 +61,19 @@ public class BoardDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		try {
+			conn = dbConnection.getConnection();
+			String sql = "update board set read_count= read_count+1 where board_number = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,  board_number);
+			System.out.println("In update read count");
+			pstmt.executeUpdate();
+			System.out.println("after execute");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 		return board;
 	}
@@ -81,11 +93,12 @@ public class BoardDAO {
 				String board_content = rs.getString(3);
 				String id = rs.getString(4);
 				Timestamp datetime = rs.getTimestamp(5);
-
+				int readCount = rs.getInt(6);
+				
 				BoardDTO board = new BoardDTO(title, board_content, id);
 				board.setBoard_number(board_number);
 				board.setDatetime(datetime);
-				
+				board.setReadCount(readCount);
 				boards.add(board);
 			}
 			

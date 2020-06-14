@@ -48,7 +48,7 @@
 
 			<div class="jumbotron" style="padding-top: 20px;">
 
-				<form method="post" action="userRegister.jsp">
+				<form method="post" action="userRegisterAction.jsp">
 
 					<h3 style="text-align: center;">회원가입</h3>
 

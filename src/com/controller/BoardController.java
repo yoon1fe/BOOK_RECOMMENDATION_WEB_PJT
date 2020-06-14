@@ -35,14 +35,7 @@ public class BoardController extends HttpServlet {
 		ArrayList<BoardDTO> boards = boardDao.getBoards();
 		
 		request.setAttribute("boards", boards);
-		Enumeration params = request.getParameterNames();
-		System.out.println("----------------------------");
-		while (params.hasMoreElements()){
-		    String name = (String)params.nextElement();
-		    System.out.println(name + " : " +request.getParameter(name));
-		}
-		System.out.println("----------------------------");
-
+		
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/boards.jsp");
 		requestDispatcher.forward(request, response);
 	}

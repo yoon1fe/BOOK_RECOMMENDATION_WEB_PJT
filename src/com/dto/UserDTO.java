@@ -7,7 +7,35 @@ public class UserDTO {
 	private int age;
 	private String sex;
 	private String email;
+	private String emailHash;
+	private boolean emailChecked;
 	
+	
+	public UserDTO(String userID, String userPassword, String userName, int age, String sex, String email,
+			String emailHash, boolean emailChecked) {
+		super();
+		this.userID = userID;
+		this.userPassword = userPassword;
+		this.userName = userName;
+		this.age = age;
+		this.sex = sex;
+		this.email = email;
+		this.emailHash = emailHash;
+		this.emailChecked = emailChecked;
+	}
+	
+	public String getEmailHash() {
+		return emailHash;
+	}
+	public void setEmailHash(String emailHash) {
+		this.emailHash = emailHash;
+	}
+	public boolean isEmailChecked() {
+		return emailChecked;
+	}
+	public void setEmailChecked(boolean emailChecked) {
+		this.emailChecked = emailChecked;
+	}
 	public String getUserID() {
 		return userID;
 	}

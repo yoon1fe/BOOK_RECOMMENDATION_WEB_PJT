@@ -7,13 +7,23 @@ public class BoardDTO {
 	private String title;
 	private String board_content;
 	private String id;
+	private int readCount;
 	private Timestamp datetime;
+
 	
 	public BoardDTO(String title, String board_content, String id) {
 		super();
 		this.title = title;
 		this.board_content = board_content;
 		this.id = id;
+	}
+
+	public int getReadCount() {
+		return readCount;
+	}
+
+	public void setReadCount(int readCount) {
+		this.readCount = readCount;
 	}
 	
 	public int getBoard_number() {

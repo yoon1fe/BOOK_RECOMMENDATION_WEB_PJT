@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<jsp:include page="menu.jsp" />
+	<jsp:include page="menu.jsp" />`
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
