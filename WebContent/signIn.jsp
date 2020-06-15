@@ -37,13 +37,13 @@ href = './css/sign.css'>
                <h5 class="card-title text-center">Sign In</h5>
                <form class="form-signin" method="post" action="loginAction.jsp">
                  <div class="form-label-group" >
-                   <input type="text" name="id" class="form-control" placeholder="ID" required autofocus>
+                   <input type="text" id ="id" name="id" class="form-control" placeholder="ID" required autofocus>
                    <label for="id">ID</label>
                  </div>
    
                  <div class="form-label-group">
-                   <input type="password" name="password" class="form-control" placeholder="Password" required>
-                   <label for="inputPassword">Password</label>
+                   <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+                   <label for="password">Password</label>
                  </div>
    <!--  
                  <div class="custom-control custom-checkbox mb-3">
