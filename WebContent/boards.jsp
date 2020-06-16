@@ -16,33 +16,41 @@
 
 	<a href="write.jsp">글 쓰기</a>
 	
-
+	<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>게시글</th>
+			<th>번호</th>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>조회수</th>
+			<th>추천수</th>
+			<th>비추천수</th>
+			<th>시각</th>
+		<tr>
+	</tr>
 	
-				<h5>게시글 번호 제목 작성자 조회수 추천수 비추천수 시각</h5>
-				
+	<tbody>						
 			<%
 			for(BoardDTO bds : boards){
 				%>
-				<article class = "board-article">
-				<a href="BoardContent?id=<%=bds.getBoard_number()%>">
-				<%=bds.getBoard_number() %>
-				<%=bds.getTitle() %>
-				<%=bds.getId() %>
-				<%=bds.getReadCount()%>
-				<%=bds.getLike() %>
-				<%=bds.getDislike() %>
-				<%=bds.toString() %>
-				</a>
-				</article>
+			<tr>
+				<td><a href="BoardContent?id=<%=bds.getBoard_number()%>"></a></td>
+				<td><%=bds.getBoard_number() %></td>
+				<td><%=bds.getTitle() %></td>
+				<td><%=bds.getId() %></td>
+				<td><%=bds.getReadCount()%></td>
+				<td><%=bds.getLike() %></td>
+				<td><%=bds.getDislike() %></td>
+				<td><%=bds.toString() %></td>
+			</tr>
 				<%
 			}
 			%>
-		</tbody>
-
+			
+	</tbody>
 	</table>
 
- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> 
- <script src="js/bootstrap.js"></script>
 	<jsp:include page="footer.jsp" />
 </body>
 </html>
