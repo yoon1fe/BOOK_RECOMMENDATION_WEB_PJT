@@ -18,7 +18,7 @@
 	
 
 	
-				<h3>게시글 번호 제목 작성자 조회수 시각</h3>
+				<h5>게시글 번호 제목 작성자 조회수 추천수 비추천수 시각</h5>
 				
 			<%
 			for(BoardDTO bds : boards){
@@ -29,6 +29,8 @@
 				<%=bds.getTitle() %>
 				<%=bds.getId() %>
 				<%=bds.getReadCount()%>
+				<%=bds.getLike() %>
+				<%=bds.getDislike() %>
 				<%=bds.toString() %>
 				</a>
 				</article>

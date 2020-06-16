@@ -21,6 +21,10 @@
 			<%=boardContent.getTitle()%>
 			작성자:
 			<%=boardContent.getId()%>
+			추천수:
+			<%=boardContent.getLike() %>
+			비추천수:
+			<%=boardContent.getDislike() %>
 			작성시간:
 			<%=boardContent.toString()%></h4>
 		<%=boardContent.getBoard_content()%>
@@ -39,6 +43,19 @@
 			<input type="hidden" name="id" value=<%=session.getAttribute("userID") %>>
 		</form>
 	</div>
+	
+	
+	
+	<%
+
+	if(session.getAttribute("userID").equals(boardContent.getId())){
+		%>
+		<div class="modify-delete-button">
+			<button id="modify">수정</button>
+			<button id="delete">삭제</button>
+		</div>
+		<%
+	}%>
 
 	<div class="board-comment">
 

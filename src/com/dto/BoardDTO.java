@@ -8,6 +8,26 @@ public class BoardDTO {
 	private String board_content;
 	private String id;
 	private int readCount;
+	private int like;
+	private int dislike;
+	
+	
+	public int getDislike() {
+		return dislike;
+	}
+
+	public void setDislike(int dislike) {
+		this.dislike = dislike;
+	}
+
+	public int getLike() {
+		return like;
+	}
+
+	public void setLike(int like) {
+		this.like = like;
+	}
+
 	private Timestamp datetime;
 
 	

@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.BoardDAO;
+import com.dao.RecommendDAO;
 import com.dto.BoardDTO;
+import com.dto.recommendDTO;
 
 
 /**
@@ -32,7 +34,15 @@ public class BoardController extends HttpServlet {
 
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	BoardDAO boardDao = new BoardDAO();
+    	RecommendDAO recommDao = new RecommendDAO();
 		ArrayList<BoardDTO> boards = boardDao.getBoards();
+
+		
+		for(BoardDTO bds: boards) {
+			int board_number = bds.getBoard_number();
+			bds.setLike(recommDao.getLike(board_number));
+			bds.setDislike(recommDao.getDislike(board_number));
+		}
 		
 		request.setAttribute("boards", boards);
 		
@@ -41,13 +51,12 @@ public class BoardController extends HttpServlet {
 	}
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

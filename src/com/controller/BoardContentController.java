@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dao.BoardDAO;
 import com.dao.CommentDAO;
+import com.dao.RecommendDAO;
 import com.dto.BoardDTO;
 import com.dto.CommentDTO;
 
@@ -41,17 +42,18 @@ public class BoardContentController extends HttpServlet {
 		System.out.println(board_number);
 		BoardDAO boardDao = new BoardDAO();
 		CommentDAO commentDao = new CommentDAO();
-		System.out.println("~~~~");
+		RecommendDAO recommDao = new RecommendDAO();
+		
 		ArrayList<CommentDTO> comments = commentDao.getComments(board_number);
 
-		System.out.println("~~~~");
-		
 
 		BoardDTO boardContent = boardDao.getBoardContent(board_number);
-		System.out.println("~~~~");
+		boardContent.setLike(recommDao.getLike(board_number));
+		boardContent.setDislike(recommDao.getDislike(board_number));
+		
 		request.setAttribute("boardContent", boardContent);
 		request.setAttribute("comments",  comments);
-		System.out.println("~~~~");
+
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("boardContent.jsp");
 		requestDispatcher.forward(request, response);
 	}
