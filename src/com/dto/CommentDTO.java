@@ -1,6 +1,7 @@
 package com.dto;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 public class CommentDTO {
 	private int comment_number;
@@ -8,6 +9,7 @@ public class CommentDTO {
 	private int board_number;
 	private String comment_content;
 	private Timestamp datetime;
+	SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd hh:mm");
 	
 	public CommentDTO(String id, String comment_content, Timestamp datetime) {
 		super();
@@ -52,7 +54,7 @@ public class CommentDTO {
 
 	@Override
 	public String toString() {
-		return "" + datetime + "";
+		return formatter.format(datetime);
 	}
 	
 	

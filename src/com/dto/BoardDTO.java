@@ -1,6 +1,7 @@
 package com.dto;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 public class BoardDTO {
 	private int board_number;
@@ -10,7 +11,8 @@ public class BoardDTO {
 	private int readCount;
 	private int like;
 	private int dislike;
-	
+	private Timestamp datetime;
+	SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd hh:mm");
 	
 	public int getDislike() {
 		return dislike;
@@ -28,7 +30,6 @@ public class BoardDTO {
 		this.like = like;
 	}
 
-	private Timestamp datetime;
 
 	
 	public BoardDTO(String title, String board_content, String id) {
@@ -77,9 +78,11 @@ public class BoardDTO {
 		this.datetime = datetime;
 	}
 
+	
+	
 	@Override
 	public String toString() {
-		return "" + datetime + "";
+		return formatter.format(datetime);
 	}
 	
 	

@@ -112,6 +112,23 @@ public class BoardDAO {
 		}
 	}
 	
+	public int deleteBoard(int board_number) {
+		try {
+			conn = dbConnection.getConnection();
+			String sql = "delete from board where board_number = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, board_number);
+			
+			return pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
+	
 	public BoardDTO getBoardContent(int board_number) {
 		BoardDTO board = null;
 		
@@ -158,7 +175,7 @@ public class BoardDAO {
 		
 		try {
 			conn = dbConnection.getConnection();
-			String sql = "select * from board";
+			String sql = "select * from board order by board_number desc";
 			
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();

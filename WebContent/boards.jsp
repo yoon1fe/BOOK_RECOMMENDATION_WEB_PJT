@@ -19,14 +19,13 @@
 	<table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<th>게시글</th>
-			<th>번호</th>
+			<th>게시글 번호</th>
 			<th>제목</th>
 			<th>작성자</th>
-			<th>조회수</th>
 			<th>추천수</th>
 			<th>비추천수</th>
-			<th>시각</th>
+			<th>조회수</th>
+			<th>작성 시각</th>
 		<tr>
 	</tr>
 	
@@ -34,14 +33,13 @@
 			<%
 			for(BoardDTO bds : boards){
 				%>
-			<tr>
-				<td><a href="BoardContent?id=<%=bds.getBoard_number()%>"></a></td>
+			<tr onClick="location.href='BoardContent?id=<%=bds.getBoard_number()%>'"  style='cursor: pointer'>
 				<td><%=bds.getBoard_number() %></td>
 				<td><%=bds.getTitle() %></td>
 				<td><%=bds.getId() %></td>
-				<td><%=bds.getReadCount()%></td>
 				<td><%=bds.getLike() %></td>
 				<td><%=bds.getDislike() %></td>
+				<td><%=bds.getReadCount()%></td>
 				<td><%=bds.toString() %></td>
 			</tr>
 				<%
