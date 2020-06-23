@@ -44,18 +44,11 @@
 
 
 
-	<%
-
-	if(session.getAttribute("userID") != null && session.getAttribute("userID").equals(boardContent.getId())){
-		%>
+	<%if(session.getAttribute("userID") != null && session.getAttribute("userID").equals(boardContent.getId())){%>	<!-- 로그인이 되어있고 자기 글을 조회했을 때 -->
 	<div class="modify-delete-button">
 		<button id="modify">수정</button>
-		
-		<!-- <button id="delete" onClick="delBoard()">삭제</button>  -->
-		<form action="./DeleteBoard" accept-charset='utf-8' method="post">
-			<button id="delete">삭제</button>
-			<input type="hidden" name="board_number" value=<%=boardContent.getBoard_number() %>>
-		</form>
+
+		<button id="delete" onClick="delBoard()">삭제</button> 
 	</div>
 	<%
 	}%>
@@ -70,31 +63,23 @@
 			<button>작성</button>
 		</form>
 
-
-
 		<%
 			if (comments.isEmpty()) {
-
 			} else {
 				for (CommentDTO cms : comments) {
 		%>
-
 
 		<article class="comment-article">
 			<%=cms.getId()%>
 			<%=cms.getComment_content()%>
 			<%=cms.toString()%>
 		</article>
-
 		<%
-			}
+				}
 			}
 		%>
 
 	</div>
-
-
-
 
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -105,19 +90,13 @@
 			if(isDel){
 				var bn = '<%=boardContent.getBoard_number() %>';
 				
-				document.write("<%request.setAttribute("board_number", boardContent.getBoard_number()); %>");
-				
-				console.log(bn);
-				
-				
-				location.href="./DeleteBoard";
+				location.href="./DeleteBoard?board_number="+bn;
 				return true;
 			}
 			else{
 				return false;
 			}
 		}
-	
 	</script>
 	<jsp:include page="footer.jsp" />
 </body>

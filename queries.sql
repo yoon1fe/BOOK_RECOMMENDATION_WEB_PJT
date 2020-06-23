@@ -39,29 +39,28 @@ CREATE TABLE comment(
     date DATETIME DEFAULT NOW(),
     
     foreign key(id) references user(id),
-    foreign key(board_number) references board(board_number),
+    foreign key(board_number) references board(board_number) on delete cascade,
     primary key(comment_number)
 )DEFAULT CHARSET=utf8;
 
-
+select * from information_schema.table_constraints;
 show tables;
+select * from comment;
 
-desc board;
+select * from user;
 select * from board;
 insert into user values('yoon1fe', 'admin', '윤원철', 26, '남자', 'yoon1fe@knu.ac.kr', '', true);
-delete from user where id='yoon1fe';
-select * from user;
+
+
 
 update board set read_count= read_count+1 where board_number = 3;
 insert into board(title, board_content, id) values('첫글이다', '반갑다 첫 글이다', 'yoon1fe');
-select * from board;
-delete from board where id='yoon1fe';
 
-select * from user;
+select count(likely) from recommend where board_number = 2 and likely = 1;
+select count(dislikely) from recommend where board_number = ? and dislikely = 1;
+
+
 
 insert into comment(id, board_number, comment_content) values('yoon1fe', '3', '그래 반갑다 첫 댓글이다');
 select * from comment;
-delete from comment where id='yoon1fe';
-select date from board;
 
-select * from board;
