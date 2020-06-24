@@ -14,76 +14,102 @@
 </head>
 <body>
 	<jsp:include page="menu.jsp" />
-
-	<div class="board-content">
-		<h4>
-			제목:
-			<%=boardContent.getTitle()%>
-			작성자:
-			<%=boardContent.getId()%>
-			추천수:
-			<%=boardContent.getLike() %>
-			비추천수:
-			<%=boardContent.getDislike() %>
-			작성시간:
-			<%=boardContent.toString()%></h4>
-		<%=boardContent.getBoard_content()%>
-
-	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+			<div class="card mt-4">
+				<div class="card-body">
+					<h2 class="card-title">제목 : <%=boardContent.getTitle()%></h2>
+					<p>작성자 : <%=boardContent.getId()%> 작성시간 : <%=boardContent.toString()%> </p>
+					<p>추천수 : <%=boardContent.getLike() %> 비추천수 : <%=boardContent.getDislike() %> </p>
+					<p class="text warning">
+					<%
+						int a = (int)(boardContent.getLike()/(boardContent.getLike()+boardContent.getDislike()+0.1))*5;
+						for(int i=0;i<a;i++)
+							out.println('★');
+						for(int i=0;i<5-a;i++)
+							out.println('☆');
+					%>
+					</p>
+					<hr>
+					<p class="card-text"><%=boardContent.getBoard_content()%></p>
+					
+				</div>
+			
+	
 
 	<div class="recommend">
+	<span>
 		<form action="likeAction.jsp" accept-charset='utf-8' method="post">
 			<button id="like">추천</button>
 			<input type="hidden" name="board_number" value=<%=boardContent.getBoard_number() %>> <input type="hidden" name="id" value=<%=session.getAttribute("userID") %>>
 		</form>
+	</span>
+	<span>
 		<form action="dislikeAction.jsp" accept-charset='utf-8' method="post">
 			<button id="dislike">비추천</button>
 			<input type="hidden" name="board_number" value=<%=boardContent.getBoard_number() %>> <input type="hidden" name="id" value=<%=session.getAttribute("userID") %>>
 		</form>
+	</span>
 	</div>
 
 
 
 	<%if(session.getAttribute("userID") != null && session.getAttribute("userID").equals(boardContent.getId())){%>	<!-- 로그인이 되어있고 자기 글을 조회했을 때 -->
 	<div class="modify-delete-button">
-		<button id="modify">수정</button>
+		<button class="btn btn-outline-success" id="modify">수정</button>
 
-		<button id="delete" onClick="delBoard()">삭제</button> 
+		<button class="btn btn-outline-danger" id="delete" onClick="delBoard()">삭제</button> 
 	</div>
 	<%
 	}%>
-
-	<div class="board-comment">
-
-		<h4>============댓글창============</h4>
+	
+	<div class="card card-outline-secondary my-4">
+		<div class="card-header">
+		============댓글창============
 		<form action="./CommentWrite" accept-charset='utf-8' method="post">
 			댓글: <input type="text" name="content" placeholder="댓글을 입력하세요">
 			<!--  <input type="hidden" name="userID" value=<%=session.getAttribute("userID") %>>-->
 			<input type="hidden" name="id" value=<%=boardContent.getBoard_number()%>>
 			<button>작성</button>
-		</form>
+		</form>	
+		</div>
+		<div class="card-body">
+		<%
+			if (comments.isEmpty()) {
+			} else {
+				for (CommentDTO cms : comments) {
+		%>
+		
+		<%
+				}
+			}
+		%>
+	
+	
 
 		<%
 			if (comments.isEmpty()) {
 			} else {
 				for (CommentDTO cms : comments) {
 		%>
-
-		<article class="comment-article">
-			<%=cms.getId()%>
-			<%=cms.getComment_content()%>
-			<%=cms.toString()%>
-		</article>
+		<p><%=cms.getComment_content()%></p>
+		<small class="text-muted">By <%=cms.getId()%>, <%=cms.toString()%> </small>
+		<hr>
+		
 		<%
 				}
 			}
 		%>
-
 	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	
 
 
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.js"></script>
 	<script>
 		function delBoard(){
 			const isDel = confirm("정말 삭제하시겠습니까?");

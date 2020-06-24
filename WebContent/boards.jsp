@@ -13,14 +13,16 @@
 </head>
 <body>
 	<jsp:include page="menu.jsp" />
-
-	<a href="write.jsp">글 쓰기</a>
-	
+	<br>
+	<div class="container">
+	<a class="btn btn-outline-secondary" href="write.jsp">글 쓰기</a>
+	<br>
+	<br>
 	<table class="table table-striped table-bordered">
 	<thead>
 		<tr>
 			<th>게시글 번호</th>
-			<th>제목</th>
+			<th  style="width:40%">제목</th>
 			<th>작성자</th>
 			<th>추천수</th>
 			<th>비추천수</th>
@@ -48,7 +50,7 @@
 			
 	</tbody>
 	</table>
-
+	</div>
 	<jsp:include page="footer.jsp" />
 </body>
 </html>

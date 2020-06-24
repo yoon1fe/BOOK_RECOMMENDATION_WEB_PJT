@@ -10,6 +10,7 @@
 	<jsp:include page="menu.jsp" />
 	<form action="./Write" accept-charset='utf-8' method="post">
 	<div class="container">
+	<br>
 		<h2>게시판 글쓰기</h2>
 		<table class = "table table-hover">
 			<tbody>
@@ -27,7 +28,7 @@
 	</div>
 
 	</form>
-
+	<br>
 	<jsp:include page="footer.jsp" />
 </body>
 </html>
