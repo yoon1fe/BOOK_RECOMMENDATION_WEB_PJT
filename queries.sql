@@ -43,8 +43,13 @@ CREATE TABLE comment(
     primary key(comment_number)
 )DEFAULT CHARSET=utf8;
 
-select * from information_schema.table_constraints;
-show tables;
+drop table comment;
+desc comment;
+delete from comment where id is null;
+alter table recommend add constraint foreign_board foreign key(board_number) references board(board_number) on delete cascade;
+alter table recommend drop primary key;
+alter table recommend add column board_number bigint(20) unsigned not null;
+
 select * from comment;
 
 select * from user;
@@ -62,5 +67,8 @@ select count(dislikely) from recommend where board_number = ? and dislikely = 1;
 
 
 insert into comment(id, board_number, comment_content) values('yoon1fe', '3', '그래 반갑다 첫 댓글이다');
-select * from comment;
+select * from recommend;
 
+select * from board;
+
+select count(comment.comment_number) from board, comment where board.board_number= 24 and board.board_number = comment.board_number;

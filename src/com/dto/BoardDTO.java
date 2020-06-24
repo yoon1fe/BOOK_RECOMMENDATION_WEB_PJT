@@ -12,7 +12,7 @@ public class BoardDTO {
 	private int like;
 	private int dislike;
 	private Timestamp datetime;
-	SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd hh:mm");
+	SimpleDateFormat formatter = new SimpleDateFormat ("yy-MM-dd HH:mm");
 	
 	public int getDislike() {
 		return dislike;

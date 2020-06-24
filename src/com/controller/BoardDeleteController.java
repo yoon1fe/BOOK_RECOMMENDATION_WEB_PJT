@@ -28,9 +28,7 @@ public class BoardDeleteController extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
@@ -48,8 +46,6 @@ public class BoardDeleteController extends HttpServlet {
 		out.println("</script>");
 		
 		response.sendRedirect("Board");
-		//RequestDispatcher requestDispatcher = request.getRequestDispatcher("Board");
-		//requestDispatcher.forward(request,  response);
 	}
 
 }

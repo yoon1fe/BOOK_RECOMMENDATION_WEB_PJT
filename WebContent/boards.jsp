@@ -15,7 +15,7 @@
 	<jsp:include page="menu.jsp" />
 	<br>
 	<div class="container">
-	<a class="btn btn-outline-secondary" href="write.jsp">글 쓰기</a>
+	<button class="btn btn-outline-secondary" onClick="isUserIDNull()">글 쓰기</button>
 	<br>
 	<br>
 	<table class="table table-striped table-bordered">
@@ -52,5 +52,18 @@
 	</table>
 	</div>
 	<jsp:include page="footer.jsp" />
+	<script>
+	function isUserIDNull(){
+		var id = '<%=session.getAttribute("userID")%>';
+		
+			if (id == 'null') {
+				alert('로그인 후 이용해주세요!');
+				return false;
+			} else {
+				location.href = "write.jsp";
+				return true;
+			}
+		}
+	</script>
 </body>
 </html>

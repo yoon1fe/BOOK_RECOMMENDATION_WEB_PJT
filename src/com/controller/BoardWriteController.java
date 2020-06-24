@@ -40,8 +40,6 @@ public class BoardWriteController extends HttpServlet {
 		String content = request.getParameter("content");
 		boardDao.addBoard(title, content, id);
 
-
-		
 		response.sendRedirect("Board");
 	}
 

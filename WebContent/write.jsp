@@ -15,7 +15,7 @@
 		<table class = "table table-hover">
 			<tbody>
 				<tr>
-					<td><input type="text" name="title" placeholder="제목" maxlength="200" size="100"></td>
+					<td><input type="text" name="title" placeholder="제목" required="required" maxlength="200" size="100"></td>
 				</tr>
 				<tr>
 					<td><textarea name="content" class="form-control" placeholder="내용을 작성해주세요" required="required" maxlength="5120" 

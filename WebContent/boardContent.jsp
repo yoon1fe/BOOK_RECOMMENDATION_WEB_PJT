@@ -66,12 +66,13 @@
 	
 	<div class="card card-outline-secondary my-4">
 		<div class="card-header">
-		============댓글창============
 		<form action="./CommentWrite" accept-charset='utf-8' method="post">
-			댓글: <input type="text" name="content" placeholder="댓글을 입력하세요">
+			댓글: <input type="text" name="content" required="required" placeholder="댓글을 입력하세요">
 			<!--  <input type="hidden" name="userID" value=<%=session.getAttribute("userID") %>>-->
 			<input type="hidden" name="id" value=<%=boardContent.getBoard_number()%>>
-			<button>작성</button>
+			<%if(session.getAttribute("userID") == null){%>
+			<button disabled title="로그인해야 작성할 수 있습니다.">작성</button><%}else{%>
+			<button>작성</button><%} %>
 		</form>	
 		</div>
 		<div class="card-body">

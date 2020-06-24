@@ -32,19 +32,15 @@ public class CommentWriteController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("userID");
-		System.out.println(id);
 		int board_number = Integer.parseInt(request.getParameter("id"));
-		System.out.println(board_number);
 		String comment_content = request.getParameter("content");
-		System.out.println(comment_content);
 		CommentDAO commentDao = new CommentDAO();
 		commentDao.addComment(id, board_number, comment_content);
-		System.out.println("============");
 		
 		
 		response.sendRedirect("./BoardContent?id=" + board_number);
-		//RequestDispatcher requestDispatcher = request.getRequestDispatcher("/BoardContent?id=" + board_number);
-		//requestDispatcher.forward(request, response);
+		//RequestDispatcher rd = request.getRequestDispatcher("./BoardContent?id=" + board_number);
+		//rd.forward(request, response);
 	}
 
 }

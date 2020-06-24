@@ -105,7 +105,6 @@ public class RecommendDAO {
 			         int rs=pstmt.executeUpdate();
 		        	 
 			         
-	        		 System.out.println("�ϳ� ������");
 	        		 boardDAO.processLike(board_number, -1);
 		            return -1;
 		         }
