@@ -5,6 +5,12 @@
 <%
 	BoardDTO boardContent = (BoardDTO) request.getAttribute("boardContent");
 	ArrayList<CommentDTO> comments = (ArrayList<CommentDTO>) request.getAttribute("comments");
+	Boolean isOwnContent;
+	Boolean isOwnComment;
+	if(session.getAttribute("userID") == null) isOwnContent = null;
+	else if(session.getAttribute("userID").equals(boardContent.getId())) isOwnContent = true;
+	else isOwnContent = false;
+	System.out.println(isOwnContent);
 %>
 <!DOCTYPE html>
 <html>
@@ -92,7 +98,7 @@
 
 
 
-	<%if(session.getAttribute("userID") != null && session.getAttribute("userID").equals(boardContent.getId())){%>	<!-- 로그인이 되어있고 자기 글을 조회했을 때 -->
+	<%if(isOwnContent != null && isOwnContent == true){%>	<!-- 로그인이 되어있고 자기 글을 조회했을 때 -->
 	<div class="modify-delete-button" style="margin-left:25px;">
 		<button class="btn btn-outline-success" id="modify">수정</button>
 		&nbsp;
@@ -106,7 +112,7 @@
 		<form action="./CommentWrite" accept-charset='utf-8' method="post">
 			댓글: <input type="text" name="content" required="required" placeholder="댓글을 입력하세요" size=80>
 			<input type="hidden" name="id" value=<%=boardContent.getBoard_number()%>>
-			<%if(session.getAttribute("userID") == null){%>
+			<%if(isOwnContent == null){%>
 			<button disabled title="로그인해야 작성할 수 있습니다.">작성</button><%}else{%>
 			<button class="btn btn-info">작성</button><%} %>
 		</form>	
@@ -116,24 +122,12 @@
 			if (comments.isEmpty()) {
 			} else {
 				for (CommentDTO cms : comments) {
-		
-				}
-			}
-		%>
-	
-	
-
-		<%
-			if (comments.isEmpty()) {
-			} else {
-				for (CommentDTO cms : comments) {
 		%>
 		<p><%=cms.getComment_content()%></p>
 		<small class="text-muted">By <%=cms.getId()%>, <%=cms.toString()%> </small>
 		&nbsp;&nbsp;
-		<button id='comment-delete' onClick="delComment(<%=cms.getComment_number()%>)">X</button>
+		<button id='comment-delete' onClick="delComment(<%=cms.getComment_number()%>, '<%=cms.getId()%>')">X</button>
 		<hr>
-
 		<%
 				}
 			}
@@ -161,10 +155,13 @@
 			}
 		}
 		
-		function delComment(cn){
+		function delComment(cn, id){
 			const isDel = confirm("정말 삭제하시겠습니까?");
 			if(isDel){
-				
+				if(id != '<%=session.getAttribute("userID")%>'){
+					alert('본인의 댓글만 삭제할 수 있습니다!');
+					return false;
+				}
 				
 				location.href="./DeleteComment?comment_number="+cn + "&board_number=" + <%=boardContent.getBoard_number()%>;
 				return true;
