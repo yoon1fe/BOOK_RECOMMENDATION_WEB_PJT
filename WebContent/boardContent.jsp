@@ -11,6 +11,35 @@
 <head>
 <meta charset="UTF-8">
 <title><%=boardContent.getTitle()%></title>
+<style>
+	.button{
+	transition-duration : 0.4s;	
+	font-size:15px;
+	border-radius:8px; 
+	padding: 16px 32px;
+}
+	.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.button3 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #f44336;
+}
+
+.button3:hover {
+  background-color: #f44336;
+  color: white;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="menu.jsp" />
@@ -21,8 +50,8 @@
 				<div class="card-body">
 					<h2 class="card-title">제목 : <%=boardContent.getTitle()%></h2>
 					<p>작성자 : <%=boardContent.getId()%> 작성시간 : <%=boardContent.toString()%> </p>
-					<p>추천수 : <%=boardContent.getLike() %> 비추천수 : <%=boardContent.getDislike() %> </p>
-					<p class="text warning">
+					<p>추천수 : <%=boardContent.getLike() %> 비추천수 : <%=boardContent.getDislike() %> 
+					<p1 class="text warning">
 					<%
 						int a = (int)(boardContent.getLike()/(boardContent.getLike()+boardContent.getDislike()+0.1))*5;
 						for(int i=0;i<a;i++)
@@ -30,6 +59,7 @@
 						for(int i=0;i<5-a;i++)
 							out.println('☆');
 					%>
+					</p1>
 					</p>
 					<hr>
 					<p class="card-text"><%=boardContent.getBoard_content()%></p>
@@ -38,20 +68,27 @@
 			
 	
 
-	<div class="recommend">
-	<span>
+	<table class="recommend" style="margin-left:auto;margin-right:auto;">
+	<tr>
+	<td>
 		<form action="likeAction.jsp" accept-charset='utf-8' method="post">
-			<button id="like">추천</button>
+			<button id="like" class="button button2">추천</button>
 			<input type="hidden" name="board_number" value=<%=boardContent.getBoard_number() %>> <input type="hidden" name="id" value=<%=session.getAttribute("userID") %>>
 		</form>
-	</span>
-	<span>
+	</td>
+	<td>
+	&nbsp;
+	</td>
+	<td>
+	</td>
+	<td>
 		<form action="dislikeAction.jsp" accept-charset='utf-8' method="post">
-			<button id="dislike">비추천</button>
+			<button id="dislike" class="button button3">비추천</button>
 			<input type="hidden" name="board_number" value=<%=boardContent.getBoard_number() %>> <input type="hidden" name="id" value=<%=session.getAttribute("userID") %>>
 		</form>
-	</span>
-	</div>
+	</td>
+	</tr>
+	</table>
 
 
 
