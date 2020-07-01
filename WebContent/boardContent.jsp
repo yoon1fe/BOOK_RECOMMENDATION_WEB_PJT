@@ -59,7 +59,7 @@
 					<p>추천수 : <%=boardContent.getLike() %> 비추천수 : <%=boardContent.getDislike() %> 조회수 : <%=boardContent.getReadCount() %>
 					<p1 class="text warning">
 					<%
-						int a = (int)(boardContent.getLike()/(boardContent.getLike()+boardContent.getDislike()+0.1))*5;
+						int a = (int)Math.round((boardContent.getLike()/(boardContent.getLike()+boardContent.getDislike()+0.1))*5);
 						for(int i=0;i<a;i++)
 							out.println('★');
 						for(int i=0;i<5-a;i++)
