@@ -144,10 +144,16 @@ public class BoardDAO {
 				String board_content = rs.getString(3);
 				String id = rs.getString(4);
 				Timestamp datetime = rs.getTimestamp(5);
+				int readCount = rs.getInt(6);
+				int likeCount = rs.getInt(7);
+				int dislikeCount = rs.getInt(8);
 				
 				board = new BoardDTO(title, board_content, id);
 				board.setBoard_number(board_number);
 				board.setDatetime(datetime);
+				board.setReadCount(readCount);
+				board.setLike(likeCount);
+				board.setDislike(dislikeCount);
 			}
 			
 			
@@ -187,11 +193,15 @@ public class BoardDAO {
 				String id = rs.getString(4);
 				Timestamp datetime = rs.getTimestamp(5);
 				int readCount = rs.getInt(6);
+				int likeCount = rs.getInt(7);
+				int dislikeCount = rs.getInt(8);
 				
 				BoardDTO board = new BoardDTO(title, board_content, id);
 				board.setBoard_number(board_number);
 				board.setDatetime(datetime);
 				board.setReadCount(readCount);
+				board.setLike(likeCount);
+				board.setDislike(dislikeCount);
 				boards.add(board);
 			}
 			

@@ -42,14 +42,11 @@ public class BoardContentController extends HttpServlet {
 		System.out.println(board_number);
 		BoardDAO boardDao = new BoardDAO();
 		CommentDAO commentDao = new CommentDAO();
-		RecommendDAO recommDao = new RecommendDAO();
 		
 		ArrayList<CommentDTO> comments = commentDao.getComments(board_number);
 
 
 		BoardDTO boardContent = boardDao.getBoardContent(board_number);
-		boardContent.setLike(recommDao.getLike(board_number));
-		boardContent.setDislike(recommDao.getDislike(board_number));
 		
 		request.setAttribute("boardContent", boardContent);
 		request.setAttribute("comments",  comments);

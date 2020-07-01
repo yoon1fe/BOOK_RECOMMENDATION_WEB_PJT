@@ -13,49 +13,10 @@ public class RecommendDAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public int getLike(int board_number) {
-		int like = 0;
-		String sql = "select count(likely) from recommend where board_number = ? and likely = 1";
-		try {
-			conn = dbConnection.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,  board_number);
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				like = rs.getInt(1);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		
-		return like;
-	}
-	
-	public int getDislike(int board_number) {
-		int dislike = 0;
-		String sql = "select count(dislikely) from recommend where board_number = ? and dislikely = 1";
-		try {
-			conn = dbConnection.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1,  board_number);
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				dislike = rs.getInt(1);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		
-		return dislike;
-	}
 	
 	public int register(recommendDTO data)
 	{
-	      String SQL = "INSERT INTO recommend VALUES (?,?,?,?)";
+	      String SQL = "INSERT INTO recommend VALUES(?,?,?,?)";
 	      
 	      try {
 	         
@@ -116,8 +77,8 @@ public class RecommendDAO {
 			         pstmt.setString(1, id);
 			         pstmt.setInt(2, board_number);
 			         int rs=pstmt.executeUpdate();
-		        	 
-		        	 System.out.println("�ϳ� ������");
+
+
 		        	 boardDAO.processLike(board_number, 1);
 			         
 		        	 return 1;
@@ -136,8 +97,8 @@ public class RecommendDAO {
 		         pstmt.setInt(2, board_number);
 		         int rs=pstmt.executeUpdate();
 	        	 
-		         
-        		System.out.println("����� �ϳ� �߰�");
+
+
         		boardDAO.processLike(board_number, 1);
 	            return 1;
 	        	 
@@ -178,8 +139,8 @@ public class RecommendDAO {
 			         pstmt.setInt(2, board_number);
 			         int rs=pstmt.executeUpdate();
 		        	 
-			         
-	        		System.out.println("�ϳ� ������");
+
+
 	        		boardDAO.processDisLike(board_number, -1);
 		            return -1;
 		         }
@@ -191,8 +152,8 @@ public class RecommendDAO {
 			         pstmt.setString(1, id);
 			         pstmt.setInt(2, board_number);
 			         int rs=pstmt.executeUpdate();
-		        	 
-		        	 System.out.println("�ϳ� ������");
+
+
 		        	 boardDAO.processDisLike(board_number, 1);
 		        	 return 1;
 		         }
@@ -210,8 +171,8 @@ public class RecommendDAO {
 		         pstmt.setInt(2, board_number);
 		         int rs=pstmt.executeUpdate();
 	        	 
-		         
-        		System.out.println("����� �ϳ� �߰�");
+
+
         		boardDAO.processDisLike(board_number, 1);
 	            return 1;
 	        	 

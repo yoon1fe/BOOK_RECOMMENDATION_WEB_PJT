@@ -43,30 +43,33 @@ CREATE TABLE comment(
     primary key(comment_number)
 )DEFAULT CHARSET=utf8;
 
-drop table comment;
-desc comment;
+create table recommend(
+	recommend_number bigint(20) unsigned not null auto_increment,
+	likely bigint(20) unsigned default 0,
+    dislikely bigint(20) unsigned default 0,
+    id varchar(20),
+    board_number bigint(20) unsigned not null,
+    
+    foreign key(id) references user(id),
+    foreign key(board_number) references board(board_number) on delete cascade,
+    primary key(recommend_number)
+)default charset=utf8;
+
+
+drop table recommend;
+
 delete from comment where id is null;
 alter table recommend add constraint foreign_board foreign key(board_number) references board(board_number) on delete cascade;
 alter table recommend drop primary key;
 alter table recommend add column board_number bigint(20) unsigned not null;
 
-select * from comment;
 
+select * from comment;
 select * from user;
 select * from board;
-insert into user values('yoon1fe', 'admin', '윤원철', 26, '남자', 'yoon1fe@knu.ac.kr', '', true);
 
 
 
-update board set read_count= read_count+1 where board_number = 3;
-insert into board(title, board_content, id) values('첫글이다', '반갑다 첫 글이다', 'yoon1fe');
-
-select count(likely) from recommend where board_number = 2 and likely = 1;
-select count(dislikely) from recommend where board_number = ? and dislikely = 1;
-
-
-
-insert into comment(id, board_number, comment_content) values('yoon1fe', '3', '그래 반갑다 첫 댓글이다');
 select * from recommend;
 
 select * from board;

@@ -40,8 +40,8 @@ public class BoardController extends HttpServlet {
 		
 		for(BoardDTO bds: boards) {
 			int board_number = bds.getBoard_number();
-			bds.setLike(recommDao.getLike(board_number));
-			bds.setDislike(recommDao.getDislike(board_number));
+			//bds.setLike(recommDao.getLike(board_number));
+			//bds.setDislike(recommDao.getDislike(board_number));
 		}
 		
 		request.setAttribute("boards", boards);

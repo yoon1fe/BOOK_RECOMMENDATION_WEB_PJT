@@ -56,7 +56,7 @@
 				<div class="card-body">
 					<h2 class="card-title">제목 : <%=boardContent.getTitle()%></h2>
 					<p>작성자 : <%=boardContent.getId()%> 작성시간 : <%=boardContent.toString()%> </p>
-					<p>추천수 : <%=boardContent.getLike() %> 비추천수 : <%=boardContent.getDislike() %> 
+					<p>추천수 : <%=boardContent.getLike() %> 비추천수 : <%=boardContent.getDislike() %> 조회수 : <%=boardContent.getReadCount() %>
 					<p1 class="text warning">
 					<%
 						int a = (int)(boardContent.getLike()/(boardContent.getLike()+boardContent.getDislike()+0.1))*5;
@@ -77,7 +77,7 @@
 	<table class="recommend" style="margin-left:auto;margin-right:auto;">
 	<tr>
 	<td>
-		<form action="likeAction.jsp" accept-charset='utf-8' method="post">
+		<form action="Like" accept-charset='utf-8' method="post">
 			<button id="like" class="button button2">추천</button>
 			<input type="hidden" name="board_number" value=<%=boardContent.getBoard_number() %>> <input type="hidden" name="id" value=<%=session.getAttribute("userID") %>>
 		</form>
@@ -88,7 +88,7 @@
 	<td>
 	</td>
 	<td>
-		<form action="dislikeAction.jsp" accept-charset='utf-8' method="post">
+		<form action="Dislike" accept-charset='utf-8' method="post">
 			<button id="dislike" class="button button3">비추천</button>
 			<input type="hidden" name="board_number" value=<%=boardContent.getBoard_number() %>> <input type="hidden" name="id" value=<%=session.getAttribute("userID") %>>
 		</form>
