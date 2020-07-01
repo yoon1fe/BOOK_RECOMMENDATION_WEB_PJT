@@ -37,16 +37,12 @@
 		//로그인 성공
 
 		if(result == 1){
-
 			PrintWriter script = response.getWriter();
 			session.setAttribute("userID",id);
 			session.setAttribute("userPASSWORD",password);
 			script.println("<script>");
-
 			script.println("location.href='index.jsp';");
-
 			script.println("</script>");
-
 		}
 
 		//로그인 실패
@@ -56,11 +52,8 @@
 			PrintWriter script = response.getWriter();
 
 			script.println("<script>");
-
 			script.println("alert('비밀번호가 틀립니다.')");
-
 			script.println("history.back()");
-
 			script.println("</script>");
 
 		}

@@ -1,6 +1,9 @@
 <%@page import="java.util.Enumeration"%>
 <%@page import="com.dto.BoardDTO"%>
+<%@page import="com.dao.UserDAO"%>
 <%@page import="java.util.ArrayList"%>
+<%@ page import="java.io.PrintWriter"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	ArrayList<BoardDTO> boards = (ArrayList<BoardDTO>)request.getAttribute("boards");
@@ -59,7 +62,26 @@
 			if (id == 'null') {
 				alert('로그인 후 이용해주세요!');
 				return false;
-			} else {
+			} 
+			else {
+				<%
+				UserDAO dao = new UserDAO();
+				if(!dao.getUserEmailChecked((String)session.getAttribute("userID")))
+				{
+
+				      PrintWriter script = response.getWriter();
+				      script.println("<script>");
+				      script.println("alert('이메일 인증을 완료해 주세요.');");
+				      script.println("history.back();");
+				      script.println("</script>");
+				      script.close();
+
+				      return;
+
+				}
+				
+				%>
+				
 				location.href = "write.jsp";
 				return true;
 			}

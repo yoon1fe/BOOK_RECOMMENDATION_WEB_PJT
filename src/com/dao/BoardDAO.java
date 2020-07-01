@@ -17,6 +17,77 @@ public class BoardDAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
+              public String findTitle(int boardNumber)
+	{
+
+		String title=null;
+		
+		try {
+			conn = dbConnection.getConnection();
+			String sql = "select title from board where board_number = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,  boardNumber);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				title = rs.getString(1);
+
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return title;
+	}
+	
+	
+	public String findContent(int boardNumber)
+	{
+		String content=null;
+		
+		try {
+			conn = dbConnection.getConnection();
+			String sql = "select board_content from board where board_number = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,  boardNumber);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				content = rs.getString(1);
+
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return content;
+	}
+	
+	public int reWriteBoard(String title, String content, int boardNumber) {
+		try {
+			conn = dbConnection.getConnection();
+			String sql = "update board set title=?, board_content=? where board_number=? ";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, boardNumber);
+			
+			return pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
+		
+		
+	}
+	
 	public int processLike(int board_number,int like)
 	{
 		if(like>0)

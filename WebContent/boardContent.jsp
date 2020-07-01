@@ -100,7 +100,10 @@
 
 	<%if(isOwnContent != null && isOwnContent == true){%>	<!-- 로그인이 되어있고 자기 글을 조회했을 때 -->
 	<div class="modify-delete-button" style="margin-left:25px;">
-		<button class="btn btn-outline-success" id="modify">수정</button>
+		<button class="btn btn-outline-success" id="modify" onClick="location.href='Rewrite.jsp'"><%
+int bn = boardContent.getBoard_number();
+session.setAttribute("board_number", bn);
+%>수정</button>
 		&nbsp;
 		<button class="btn btn-outline-danger" id="delete" onClick="delBoard()">삭제</button> 
 	</div>
@@ -142,6 +145,20 @@
 
 
 	<script>
+	function reWrite(){
+		const isDel = confirm("정말 수정하시겠습니까?");
+		if(isDel){
+			var bn = '<%=boardContent.getBoard_number() %>';
+			
+			setAttribute("board_number", bn);
+			location.href="./Rewrite.jsp";
+			
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 		function delBoard(){
 			const isDel = confirm("정말 삭제하시겠습니까?");
 			if(isDel){

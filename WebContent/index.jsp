@@ -12,10 +12,11 @@
 .masthead {
   height: 100vh;
   min-height: 500px;
-  background-image: url('https://cdn.pixabay.com/photo/2015/05/15/14/21/books-768426_1280.jpg');
+  background-image: url('https://images.unsplash.com/photo-1468779036391-52341f60b55d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1842&q=80');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
 }
 
 </style>
@@ -25,16 +26,16 @@
 </head>
 
 <body>
-	<jsp:include page="menu.jsp" />`
-	<header class="masthead">
+	<jsp:include page="menu.jsp" />
+	<header class="masthead" style="  opacity : 100%;">
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
-                        <h1 class="text-uppercase text-white font-weight-bold">책 추천 사이트 어쩌구저쩌구 입니다.</h1>
+                        <h1 id="title" class="text-uppercase text-black font-weight-bold" style="opacity: 100%;">경북대학교 컴퓨터학부 학생들을 위한 도서추천 사이트 'BooKnu'입니다</h1>
                         <hr class="divider my-4">
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 font-weight-light text-white mb-5">ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ한 책을 찾아보세요.</p>
+                        <p class="text-white-75 font-black-light text-white mb-5">선후배들의 REAL한 후기를 만나보세요.</p>
                     </div>
                 </div>
             </div>
