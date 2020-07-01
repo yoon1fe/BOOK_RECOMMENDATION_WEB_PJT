@@ -39,8 +39,6 @@ public class CommentWriteController extends HttpServlet {
 		
 		
 		response.sendRedirect("./BoardContent?id=" + board_number);
-		//RequestDispatcher rd = request.getRequestDispatcher("./BoardContent?id=" + board_number);
-		//rd.forward(request, response);
 	}
 
 }

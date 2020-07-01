@@ -68,7 +68,6 @@
 		<div class="card-header">
 		<form action="./CommentWrite" accept-charset='utf-8' method="post">
 			댓글: <input type="text" name="content" required="required" placeholder="댓글을 입력하세요">
-			<!--  <input type="hidden" name="userID" value=<%=session.getAttribute("userID") %>>-->
 			<input type="hidden" name="id" value=<%=boardContent.getBoard_number()%>>
 			<%if(session.getAttribute("userID") == null){%>
 			<button disabled title="로그인해야 작성할 수 있습니다.">작성</button><%}else{%>
@@ -80,9 +79,7 @@
 			if (comments.isEmpty()) {
 			} else {
 				for (CommentDTO cms : comments) {
-		%>
 		
-		<%
 				}
 			}
 		%>
@@ -96,8 +93,9 @@
 		%>
 		<p><%=cms.getComment_content()%></p>
 		<small class="text-muted">By <%=cms.getId()%>, <%=cms.toString()%> </small>
+		<button id='comment-delete' onClick="delComment(<%=cms.getComment_number()%>)">X</button>
 		<hr>
-		
+
 		<%
 				}
 			}
@@ -118,6 +116,19 @@
 				var bn = '<%=boardContent.getBoard_number() %>';
 				
 				location.href="./DeleteBoard?board_number="+bn;
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		
+		function delComment(cn){
+			const isDel = confirm("정말 삭제하시겠습니까?");
+			if(isDel){
+				
+				
+				location.href="./DeleteComment?comment_number="+cn + "&board_number=" + <%=boardContent.getBoard_number()%>;
 				return true;
 			}
 			else{
