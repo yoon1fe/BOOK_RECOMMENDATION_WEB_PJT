@@ -8,8 +8,17 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('https://cdn.pixabay.com/photo/2015/05/15/14/21/books-768426_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-
+</style>
 
 <title>도서추천</title>
 
@@ -17,10 +26,24 @@
 
 <body>
 	<jsp:include page="menu.jsp" />`
-
+	<header class="masthead">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-10 align-self-end">
+                        <h1 class="text-uppercase text-white font-weight-bold">책 추천 사이트 어쩌구저쩌구 입니다.</h1>
+                        <hr class="divider my-4">
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <p class="text-white-75 font-weight-light text-white mb-5">ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ한 책을 찾아보세요.</p>
+                    </div>
+                </div>
+            </div>
+     </header>	
+	
+<!--  
 	<div class="container">
 
-      <!-- Page Heading -->
+
       <h1 class="my-4">공식 추천 교재
         <small>수업 교재</small>
       </h1>
@@ -42,11 +65,11 @@
         </div>
         </div>
       </div>
-      <!-- /.row -->
+   
 
       <hr>
 
-      <!-- Project Two -->
+
       <div class="row">
         <div class="col-md-5">
           <a href="#">
@@ -59,11 +82,9 @@
           <a class="btn btn-primary" href="#">View Project</a>
         </div>
       </div>
-      <!-- /.row -->
 
       <hr>
 
-      <!-- Project Three -->
       <div class="row">
         <div class="col-md-7">
           <a href="#">
@@ -76,11 +97,11 @@
           <a class="btn btn-primary" href="#">View Project</a>
         </div>
       </div>
-      <!-- /.row -->
+
 
       <hr>
 
-      <!-- Project Four -->
+  
       <div class="row">
 
         <div class="col-md-7">
@@ -94,11 +115,11 @@
           <a class="btn btn-primary" href="#">View Project</a>
         </div>
       </div>
-      <!-- /.row -->
+
 
       <hr>
 
-      <!-- Pagination -->
+
       <ul class="pagination justify-content-center">
         <li class="page-item">
           <a class="page-link" href="#" aria-label="Previous">
@@ -124,7 +145,7 @@
       </ul>
 
     </div>
-
+-->
 	<jsp:include page="footer.jsp" />
 </body>
 

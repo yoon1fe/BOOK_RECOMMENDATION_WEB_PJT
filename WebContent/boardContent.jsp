@@ -52,7 +52,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-			<div class="card mt-4">
+			<div class="card shadow mt-4">
 				<div class="card-body">
 					<h2 class="card-title">제목 : <%=boardContent.getTitle()%></h2>
 					<p>작성자 : <%=boardContent.getId()%> 작성시간 : <%=boardContent.toString()%> </p>
