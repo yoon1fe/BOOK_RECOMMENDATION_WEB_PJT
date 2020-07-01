@@ -18,7 +18,7 @@
 	<button class="btn btn-outline-secondary" onClick="isUserIDNull()">글 쓰기</button>
 	<br>
 	<br>
-	<table class="table table-striped table-bordered">
+	<table class="table table-striped table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>게시글 번호</th>

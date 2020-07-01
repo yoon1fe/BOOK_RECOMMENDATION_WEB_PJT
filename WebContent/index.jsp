@@ -21,17 +21,25 @@
 	<div class="container">
 
       <!-- Page Heading -->
-      <h1 class="my-4">공식 교재
+      <h1 class="my-4">공식 추천 교재
         <small>수업 교재</small>
       </h1>
 		
 		<hr>
      
       <div class="row">
-        <div class="col-md-5">
-          <h3>고급웹프로젝트</h3>
+      	<div class="col-lg-12">
+        <div class="card-border-0 shadow mb-4">
+        <div class="card-body">
+          <h3 class="m-0">고급웹프로젝트</h3>
+          <hr>
+          <a href="#">
+            <img class="img-fluid rounded mb-md-0" src="http://image.yes24.com/goods/65120999/800x0" alt="" style="width:300px; height:auto;">
+          </a>
           <p>쉽게배우는 JSP 웹프로그래밍</p>
           <a class="btn btn-primary" href="http://www.yes24.com/Product/Goods/65120999">View</a>
+        </div>
+        </div>
         </div>
       </div>
       <!-- /.row -->
@@ -40,14 +48,14 @@
 
       <!-- Project Two -->
       <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-5">
           <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+            <img class="img-fluid rounded" src="http://image.yes24.com/goods/65120999/800x0" alt="" style="width:500px; height:auto;">
           </a>
         </div>
-        <div class="col-md-5">
-          <h3>Project Two</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
+        <div class="col-md-7">
+          <h3>고급웹프로젝트</h3>
+          <p>쉽게배우는 JSP 웹프로그래밍 JSP 웹프로그래밍 교재로 사용됩니다. 가격은 ~~~ 출판사 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 상세정보 YES24</p>
           <a class="btn btn-primary" href="#">View Project</a>
         </div>
       </div>
