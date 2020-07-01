@@ -19,7 +19,7 @@
 <title><%=boardContent.getTitle()%></title>
 <style>
 	.button{
-	transition-duration : 0.4s;	
+	transition-duration : 0.4s;	"WebContent/boardContent.jsp"
 	font-size:15px;
 	border-radius:8px; 
 	padding: 16px 32px;

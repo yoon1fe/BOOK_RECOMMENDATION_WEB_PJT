@@ -6,7 +6,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	ArrayList<BoardDTO> boards = (ArrayList<BoardDTO>)request.getAttribute("boards");
+	ArrayList<BoardDTO> boards = (ArrayList<BoardDTO>) request.getAttribute("boards");
 %>
 <!DOCTYPE html>
 <html>
@@ -18,73 +18,59 @@
 	<jsp:include page="menu.jsp" />
 	<br>
 	<div class="container">
-	<button class="btn btn-outline-secondary" onClick="isUserIDNull()">글 쓰기</button>
-	<br>
-	<br>
-	<table class="table table-striped table-bordered table-hover">
-	<thead>
-		<tr>
-			<th>게시글 번호</th>
-			<th  style="width:40%">제목</th>
-			<th>작성자</th>
-			<th>추천수</th>
-			<th>비추천수</th>
-			<th>조회수</th>
-			<th>작성 시각</th>
-		<tr>
-	</tr>
-	
-	<tbody>						
-			<%
-			for(BoardDTO bds : boards){
-				%>
-			<tr onClick="location.href='BoardContent?id=<%=bds.getBoard_number()%>'"  style='cursor: pointer'>
-				<td><%=bds.getBoard_number() %></td>
-				<td><%=bds.getTitle() %></td>
-				<td><%=bds.getId() %></td>
-				<td><%=bds.getLike() %></td>
-				<td><%=bds.getDislike() %></td>
-				<td><%=bds.getReadCount()%></td>
-				<td><%=bds.toString() %></td>
-			</tr>
+		<button class="btn btn-outline-secondary" onClick="isUserIDNull()">글 쓰기</button>
+		<br> <br>
+		<table class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>게시글 번호</th>
+					<th style="width: 40%">제목</th>
+					<th>작성자</th>
+					<th>추천수</th>
+					<th>비추천수</th>
+					<th>조회수</th>
+					<th>작성 시각</th>
+				<tr>
+				</tr>
+			<tbody>
 				<%
-			}
-			%>
-			
-	</tbody>
-	</table>
+					for (BoardDTO bds : boards) {
+				%>
+				<tr onClick="location.href='BoardContent?id=<%=bds.getBoard_number()%>'" style='cursor: pointer'>
+					<td><%=bds.getBoard_number()%></td>
+					<td><%=bds.getTitle()%></td>
+					<td><%=bds.getId()%></td>
+					<td><%=bds.getLike()%></td>
+					<td><%=bds.getDislike()%></td>
+					<td><%=bds.getReadCount()%></td>
+					<td><%=bds.toString()%></td>
+				</tr>
+				<%
+					}
+				%>
+
+			</tbody>
+		</table>
 	</div>
 	<jsp:include page="footer.jsp" />
 	<script>
-	function isUserIDNull(){
-		var id = '<%=session.getAttribute("userID")%>';
-		
-			if (id == 'null') {
-				alert('로그인 후 이용해주세요!');
-				return false;
-			} 
-			else {
-				<%
-				UserDAO dao = new UserDAO();
-				if(!dao.getUserEmailChecked((String)session.getAttribute("userID")))
-				{
+		function isUserIDNull() {
+	<%UserDAO dao = new UserDAO();
+			if (!dao.getUserEmailChecked((String) session.getAttribute("userID"))) {
 
-				      PrintWriter script = response.getWriter();
-				      script.println("<script>");
-				      script.println("alert('이메일 인증을 완료해 주세요.');");
-				      script.println("history.back();");
-				      script.println("</script>");
-				      script.close();
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('이메일 인증을 완료해 주세요.');");
+				script.println("history.back();");
+				script.println("</script>");
+				script.close();
 
-				      return;
+				return;
 
-				}
-				
-				%>
-				
-				location.href = "write.jsp";
-				return true;
-			}
+			}%>
+		location.href = "write.jsp";
+		return true;
+
 		}
 	</script>
 </body>

@@ -53,28 +53,7 @@ public class LikeController extends HttpServlet {
 		RecommendDAO recommendDAO = new RecommendDAO();
 		
 		int result = recommendDAO.processLike(id, board_number);
-		/*	
-		 
-	    if (result <0) {
-
-	       PrintWriter script = response.getWriter();
-
-	       script.println("<script>");
-	       script.println("alert('ddd');");
-	       script.println("</script>");
-	       script.close();
-
-	    } 
-	    else
-	    {*/
-	       /*PrintWriter script = response.getWriter();
-
-	       script.println("<script>");
-	       script.println("alert('sss');");
-	       script.println("location.href='./BoardContent?id=' + board_number;");
-	       script.println("</script>");
-	       script.close();*/
-	 //   }
+	
 
 	    response.sendRedirect("./BoardContent?id=" + board_number);
 	}

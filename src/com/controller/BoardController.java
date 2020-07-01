@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
@@ -10,8 +11,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.dao.BoardDAO;
+import com.dao.CommentDAO;
 import com.dao.RecommendDAO;
 import com.dto.BoardDTO;
 import com.dto.recommendDTO;
@@ -33,6 +36,21 @@ public class BoardController extends HttpServlet {
     }
 
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=utf-8");
+    	HttpSession session = request.getSession();
+		
+    	if(session.getAttribute("userID") == null) {
+    		 PrintWriter script = response.getWriter();
+		      script.println("<script>");
+		      script.println("alert('로그인 해주세요.');");
+		      script.println("history.back();");
+		      script.println("</script>");
+		      script.close();
+
+    		return;
+    	}
+    	
     	BoardDAO boardDao = new BoardDAO();
     	RecommendDAO recommDao = new RecommendDAO();
 		ArrayList<BoardDTO> boards = boardDao.getBoards();
@@ -40,8 +58,6 @@ public class BoardController extends HttpServlet {
 		
 		for(BoardDTO bds: boards) {
 			int board_number = bds.getBoard_number();
-			//bds.setLike(recommDao.getLike(board_number));
-			//bds.setDislike(recommDao.getDislike(board_number));
 		}
 		
 		request.setAttribute("boards", boards);

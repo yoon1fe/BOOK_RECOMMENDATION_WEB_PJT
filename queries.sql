@@ -66,10 +66,10 @@ alter table recommend add column board_number bigint(20) unsigned not null;
 
 select * from comment;
 select * from user;
-select * from board;
+delete from user where sex='남자';
 
 
-
+SELECT count(likely) FROM recommend WHERE id= 'yoon1fe' and board_number= 33; 
 select * from recommend;
 
 select * from board;

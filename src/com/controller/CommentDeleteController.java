@@ -36,13 +36,7 @@ public class CommentDeleteController extends HttpServlet {
 		CommentDAO commentDao = new CommentDAO();
 		commentDao.deleteComment(comment_number);
 		
-		//자바스크립트 왜 안되지
-		out.println("<script language='javascript'>");
-		out.print("alert(");
-		out.print("삭제되었습니다.");
-		out.println(");");
-		out.println("</script>");
-		
+				
 		response.sendRedirect("BoardContent?id=" + board_number);
 	}
 

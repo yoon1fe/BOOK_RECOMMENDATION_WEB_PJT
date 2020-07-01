@@ -85,13 +85,13 @@ public class UserDAO {
 	         rs = pstmt.executeQuery();
 
 	         while(rs.next()) {
-	            return rs.getString(1); // �씠硫붿씪 二쇱냼 諛섑솚
+	            return rs.getString(1);
 	         }
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      }
 
-	      return null; // �뜲�씠�꽣踰좎씠�뒪 �삤瑜�
+	      return null;
 	   }
 	   
 	   public boolean getUserEmailChecked(String userID) {
@@ -109,7 +109,7 @@ public class UserDAO {
 
 	         while(rs.next()) {
 
-	            return rs.getBoolean(1); // �씠硫붿씪 �벑濡� �뿬遺� 諛섑솚
+	            return rs.getBoolean(1);
 
 	         }
 
@@ -119,8 +119,7 @@ public class UserDAO {
 
 	      }
 
-	      return false; // �뜲�씠�꽣踰좎씠�뒪 �삤瑜�
-
+	      return false;
 	   }
 
 	   public boolean setUserEmailChecked(String userID) {
@@ -136,7 +135,7 @@ public class UserDAO {
 
 	         pstmt.executeUpdate();
 
-	         return true; // �씠硫붿씪 �벑濡� �꽕�젙 �꽦怨�
+	         return true;
 
 	      } catch (Exception e) {
 
@@ -144,8 +143,7 @@ public class UserDAO {
 
 	      }
 
-	      return false; // �씠硫붿씪 �벑濡� �꽕�젙 �떎�뙣
-
+	      return false;
 	   }
 
 

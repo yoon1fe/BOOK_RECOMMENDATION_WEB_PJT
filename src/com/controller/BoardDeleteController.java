@@ -38,12 +38,6 @@ public class BoardDeleteController extends HttpServlet {
 		BoardDAO boardDao = new BoardDAO();
 		boardDao.deleteBoard(board_number);
 		
-		//자바스크립트 왜 안되지
-		out.println("<script language='javascript'>");
-		out.print("alert(");
-		out.print("삭제되었습니다.");
-		out.println(");");
-		out.println("</script>");
 		
 		response.sendRedirect("Board");
 	}
