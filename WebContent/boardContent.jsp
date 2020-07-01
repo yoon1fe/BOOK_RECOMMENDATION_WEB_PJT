@@ -77,7 +77,7 @@
 		</form>
 	</td>
 	<td>
-	&nbsp;
+	&nbsp; &nbsp;
 	</td>
 	<td>
 	</td>
@@ -93,9 +93,9 @@
 
 
 	<%if(session.getAttribute("userID") != null && session.getAttribute("userID").equals(boardContent.getId())){%>	<!-- 로그인이 되어있고 자기 글을 조회했을 때 -->
-	<div class="modify-delete-button">
+	<div class="modify-delete-button" style="margin-left:25px;">
 		<button class="btn btn-outline-success" id="modify">수정</button>
-
+		&nbsp;
 		<button class="btn btn-outline-danger" id="delete" onClick="delBoard()">삭제</button> 
 	</div>
 	<%
@@ -104,11 +104,11 @@
 	<div class="card card-outline-secondary my-4">
 		<div class="card-header">
 		<form action="./CommentWrite" accept-charset='utf-8' method="post">
-			댓글: <input type="text" name="content" required="required" placeholder="댓글을 입력하세요">
+			댓글: <input type="text" name="content" required="required" placeholder="댓글을 입력하세요" size=80>
 			<input type="hidden" name="id" value=<%=boardContent.getBoard_number()%>>
 			<%if(session.getAttribute("userID") == null){%>
 			<button disabled title="로그인해야 작성할 수 있습니다.">작성</button><%}else{%>
-			<button>작성</button><%} %>
+			<button class="btn btn-info">작성</button><%} %>
 		</form>	
 		</div>
 		<div class="card-body">
@@ -130,6 +130,7 @@
 		%>
 		<p><%=cms.getComment_content()%></p>
 		<small class="text-muted">By <%=cms.getId()%>, <%=cms.toString()%> </small>
+		&nbsp;&nbsp;
 		<button id='comment-delete' onClick="delComment(<%=cms.getComment_number()%>)">X</button>
 		<hr>
 
